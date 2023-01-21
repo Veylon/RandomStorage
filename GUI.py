@@ -24,9 +24,6 @@ def send_prompt(prompt):
         'prompt':  prompt,
         'temperature': 0.9,
         'max_tokens': 1024,
-        'presence_penalty': 1.0,
-        #banned words:     is         are       was         said
-        'logit_bias' : {318: -100, 389: -100, 373: -100, 531: -100}
     }
     response = send("https://api.openai.com/v1/completions",data)
     data_dict = json.loads(response.text)
